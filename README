@@ -1,10 +1,10 @@
-This is a python script that will open a Google Chrome browser and
+This is a python script that will open a Firefox browser and
 do searches on Bing in order to gain Bing Rewards credits.
 
 Requirements:
 - python
 - Selenium (version 2.26.0 or greater)
-- Google Chrome (will work with other browsers, but you figure it out)
+- Firefox
 
 This has been tested on Ubuntu 14.04, with python 2.7.6, and Selenium
 2.43.0.
@@ -16,9 +16,9 @@ python bing_rewards_crawler.py
 
 Notes:
 
-1) This script will use a specified Google Chrome profile located by default in
-~/bing_chrome/.  You can copy the profile from the default Chrome profile
-(located in .config/google-chrome for me) to ~/bing_chrome/.  You will have
+1) This script will use a specified Firefox profile located by default in
+~/bing_firefox/.  You can copy the profile from the default Firefox profile
+(located in ~/.mozilla/firefox/ for me) to ~/bing_firefox/.  You will have
 to have logged into Bing already in order for you to get Bing Rewards credits.
 
 2) The default 14.04 Ubuntu repository has an older version of Selenium(2.25.0)

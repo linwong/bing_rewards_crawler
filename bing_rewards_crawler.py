@@ -3,7 +3,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sys
@@ -11,17 +10,14 @@ import os
 import random
 import time
 
-# Stores the Chrome profile.  Change if you want to use different directory
-chrome_profile_directory = os.path.expanduser('~/bing_chrome/')
+# Stores the Firefox profile.  Change if you want to use different directory
+profile_directory = os.path.expanduser('~/bing_firefox')
 num_of_searches = 30
 num_of_mobile_searches = 20
 
 url = 'http://bing.com'
-chromedriver = os.path.expanduser('./chromedriver')
-os.environ['webdriver.chrome.driver'] = chromedriver
-chrome_options = Options()
-chrome_options.add_argument("user-data-dir=" + chrome_profile_directory)
-driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=chrome_options)
+ffprofile = webdriver.FirefoxProfile(profile_directory)
+driver    = webdriver.Firefox(ffprofile)
 driver.get(url)
 
 searches = [
@@ -90,7 +86,61 @@ searches = [
   'moto x',
   'tom brady',
   'peyton manning',
-  'ryan tannehill'
+  'ryan tannehill',
+  'michael redd',
+  'sidney moncrief',
+  'google chrome',
+  'firefox',
+  'world cup',
+  'youtube',
+  'yahoo',
+  'flickr',
+  'delicious',
+  'feedly',
+  'ars technica',
+  'cnn',
+  'engadget',
+  'hacker news',
+  'woot',
+  'android',
+  'lifehacker',
+  'iphone',
+  'apple',
+  'nexus 9',
+  'king of tokyo',
+  'king of new york',
+  'robinson crusoe',
+  'the sum of all fears',
+  'tom clancy',
+  'clear and present danger',
+  'halo 5',
+  'borderlands',
+  'ufc',
+  'josh gordon',
+  'mom',
+  'mccain',
+  'ebola',
+  'heartstone',
+  'monaco',
+  'max payne',
+  'hammerfight',
+  'skyrim',
+  'the elder scrolls',
+  'ftl',
+  'wasteland',
+  'fallout',
+  'castle crashers',
+  'nikola tesla',
+  'star wars',
+  'star trek',
+  'han solo',
+  'luke skywalker',
+  'boba fett',
+  'jabba the hutt',
+  'princess leia',
+  'amidala',
+  'lando',
+  'captain kirk',
 ]
 
 random.shuffle(searches)
@@ -119,12 +169,9 @@ driver.quit()
 
 
 # Mobile Search
-chrome_options = Options()
-chrome_options.add_argument("user-data-dir=/home/clw/bing_chrome/")
-chrome_options.add_argument("enable-extensions")
-chrome_options.add_argument("use-mobile-user-agent")
-chrome_options.add_argument('--user-agent=Mozilla/5.0 (Linux; Android 4.4.4; A0001 Build/KTU84Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36')
-driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=chrome_options)
+ffprofile = webdriver.FirefoxProfile(profile_directory)
+ffprofile.set_preference('general.useragent.override', 'Mozilla/5.0 (Linux; Android 4.4.4; A0001 Build/KTU84Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.117 Mobile Safari/537.36')
+driver    = webdriver.Firefox(ffprofile)
 driver.get(url)
 
 random.shuffle(searches)
