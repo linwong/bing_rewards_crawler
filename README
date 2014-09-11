@@ -1,0 +1,27 @@
+This is a python script that will open a Google Chrome browser and
+do searches on Bing in order to gain Bing Rewards credits.
+
+Requirements:
+- python
+- Selenium (version 2.26.0 or greater)
+- Google Chrome (will work with other browsers, but you figure it out)
+
+This has been tested on Ubuntu 14.04, with python 2.7.6, and Selenium
+2.43.0.
+
+--------------------------------------------------------------------------------
+
+Notes:
+
+1) This script will use a specified Google Chrome profile located by default in
+~/bing_chrome/.  You can copy the profile from the default Chrome profile
+(located in .config/google-chrome for me) to ~/bing_chrome/.  You will have
+to have logged into Bing already in order for you to get Bing Rewards credits.
+
+2) The default 14.04 Ubuntu repository has an older version of Selenium(2.25.0)
+which will not work with this script.  You can install the newest version
+here (https://pypi.python.org/pypi/selenium)
+
+3) You add this as a cron job to run daily.  For example
+0 10 * * *  export DISPLAY=:0 && python /PATH_TO_SCRIPT/bing_rewards_crawler.py
+
