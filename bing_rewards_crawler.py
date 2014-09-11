@@ -11,12 +11,16 @@ import os
 import random
 import time
 
+# Stores the Chrome profile.  Change if you want to use different directory
+chrome_profile_directory = os.path.expanduser('~/bing_chrome/')
+num_of_searches = 30
+num_of_mobile_searches = 20
+
 url = 'http://bing.com'
-chromedriver = '/home/clw/chromedriver'
+chromedriver = os.path.expanduser('./chromedriver')
 os.environ['webdriver.chrome.driver'] = chromedriver
 chrome_options = Options()
-chrome_options.add_argument("user-data-dir=/home/clw/bing_chrome/")
-chrome_options.add_argument("enable-extensions")
+chrome_options.add_argument("user-data-dir=" + chrome_profile_directory)
 driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=chrome_options)
 driver.get(url)
 
@@ -61,7 +65,6 @@ searches = [
   'the resistance',
   'survivor',
   'the amazing race',
-  'caris wong',
   'greenman gaming',
   'steam',
   'world of warcraft',
@@ -110,7 +113,7 @@ for search in searches:
   finally:
     i += 1
     print 'search ' + `i` + ' ' + search
-  if i > 30:
+  if i > num_of_searches:
     break
 driver.quit()
 
@@ -143,6 +146,6 @@ for search in searches:
   finally:
     i += 1
     print 'mobile search ' + `i` + ' ' + search
-  if i > 20:
+  if i > num_of_mobile_searches:
     break
 driver.quit()
