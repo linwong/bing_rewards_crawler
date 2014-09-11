@@ -9,6 +9,9 @@ Requirements:
 This has been tested on Ubuntu 14.04, with python 2.7.6, and Selenium
 2.43.0.
 
+To run:
+python bing_rewards_crawler.py
+
 --------------------------------------------------------------------------------
 
 Notes:
