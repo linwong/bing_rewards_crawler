@@ -12,8 +12,8 @@ import time
 
 # Stores the Firefox profile.  Change if you want to use different directory
 profile_directory = os.path.expanduser('~/bing_firefox')
-num_of_searches = 30
-num_of_mobile_searches = 20
+num_of_searches = 35
+num_of_mobile_searches = 25
 
 url = 'http://bing.com'
 ffprofile = webdriver.FirefoxProfile(profile_directory)
