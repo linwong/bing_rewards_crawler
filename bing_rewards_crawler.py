@@ -6,12 +6,29 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sys
+import getopt
 import os
 import random
 import time
 
+# Default profile location
+profile_location = '~/bing_firefox'
+
+try:
+  options, args = getopt.getopt(sys.argv[1:], "p:h", ["profile=", "help"])
+except getopt.GetoptError:
+  print 'Usage: bing_rewards_crawler.py [-p path_to_profile]'
+  exit(2)
+
+for opt, arg in options:
+  if opt in ('-p', '--profile'):
+    profile_location = arg
+  if opt in ('-h', '--help'):
+    print 'Usage: bing_rewards_crawler.py [-p path_to_profile]'
+    exit()
+
 # Stores the Firefox profile.  Change if you want to use different directory
-profile_directory = os.path.expanduser('~/bing_firefox')
+profile_directory = os.path.expanduser(profile_location)
 num_of_searches = 35
 num_of_mobile_searches = 25
 
