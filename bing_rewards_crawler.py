@@ -35,10 +35,10 @@ profile_directory = os.path.expanduser(profile_location)
 num_of_searches = 35
 num_of_mobile_searches = 25
 
+# open search file in insert them into a list
 with open(script_directory + '/' + search_terms) as f:
   searches = [x.strip("\n") for x in f.readlines()]
 f.close()
-print searches
 random.shuffle(searches)
 
 # Desktop search
