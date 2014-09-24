@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# This is a cron script that will run each FF profile.
+#
+# 1. Update PROJECT_DIR to point to where you want to run bing_rewards_crawler.py from.
+# 2. Create directories 'profiles' and 'logs' in the PROJECT_DIR.
+# 3. Copy your FF profiles into PROFILE_DIR.
+# 4. Add the FF profile directory name into the 'accounts' array.
+# 5. To invoke this script from your cron insert script into cron...
+#    0 10 * * * PROJECT_DIR/cron.sh
+# 6. Sit back and reap the rewards of your laziness!
+#    Don't hate the player... hate the game.
+
+PROJECT_DIR=<PATH OF YOUR PROJECT DIRECTORY>
+PROFILE_DIR=$PROJECT_DIR/profiles
+LOG_DIR=$PROJECT_DIR/logs
+
+# Update with each profile dir name in PROFILE_DIR
+accounts=(
+  '<dir name of FF profile>'
+  '<dir name of FF profile>'
+)
+
+for i in ${accounts[@]}; do
+   echo ${i} 
+   python $PROJECT_DIR/bing_rewards_crawler.py --profile $PROFILE_DIR/${i}/ >> $LOG_DIR/${i}.log 2>&1
+done 
