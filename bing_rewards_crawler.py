@@ -11,41 +11,72 @@ import getopt
 import os
 import random
 import time
+import re
 
 # Defaults
 profile_location = '~/bing_firefox'
 search_terms = 'search_terms.txt'
+login_list = 'logins.txt'
+num_of_searches = 35
+num_of_mobile_searches = 25
 
 # Get options
+#  -p --profile - use profile location
+#  -b - only opens browser, no searches (useful for opening specific profile)
+#  -l --logins - use logins in logins.txt file
+#  -h --help  
 try:
-  options, args = getopt.getopt(sys.argv[1:], "p:h", ["profile=", "help"])
+  options, args = getopt.getopt(sys.argv[1:], "p:hbl", ["profile=", "help", "browser", "logins"])
 except getopt.GetoptError:
-  print 'Usage: bing_rewards_crawler.py [-p path_to_profile]'
+  print 'Usage: bing_rewards_crawler.py [-p path_to_profile] [-b] [-l]'
   exit(2)
 
+open_browser = False
+use_login_file = False
 for opt, arg in options:
   if opt in ('-p', '--profile'):
     profile_location = arg
+  if opt in ('-b', '--browser'):
+    open_browser = True
+  if opt in ('-l', '--logins'):
+    use_login_file = True
   if opt in ('-h', '--help'):
-    print 'Usage: bing_rewards_crawler.py [-p path_to_profile]'
+    print 'Usage: bing_rewards_crawler.py [-p path_to_profile] [-b] [-l]'
     exit()
 
 script_directory  = os.path.abspath(os.path.dirname(__file__))
 profile_directory = os.path.expanduser(profile_location)
-num_of_searches = 35
-num_of_mobile_searches = 25
 
-# open search file in insert them into a list
+# open logins file and insert them into a list
+logins = []
+if use_login_file:
+  with open(script_directory + '/' + login_list) as f:
+    while 1:
+      line = f.readline()
+      if not line:
+        break
+      line = line.strip("\n")
+      if re.match('^#', line) is not None:
+        continue
+      logins.append(line)
+  f.close();
+
+# open search file and insert them into a list
 with open(script_directory + '/' + search_terms) as f:
   searches = [x.strip("\n") for x in f.readlines()]
 f.close()
 random.shuffle(searches)
+
 
 # Desktop search
 url = 'http://bing.com'
 ffprofile = webdriver.FirefoxProfile(profile_directory)
 driver    = webdriver.Firefox(ffprofile)
 driver.get(url)
+
+# this only opens the browser and does no searches
+if open_browser:
+  exit()
 
 i = 0
 for search in searches:
@@ -60,7 +91,7 @@ for search in searches:
   input.send_keys(search)
   input.submit()
   try:
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME,'q')))
+    WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.NAME,'q')))
   finally:
     i += 1
     print 'search ' + `i` + ' ' + search
@@ -90,7 +121,7 @@ for search in searches:
   input.send_keys(search)
   input.submit()
   try:
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME,'q')))
+    WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.NAME,'q')))
   finally:
     i += 1
     print 'mobile search ' + `i` + ' ' + search
