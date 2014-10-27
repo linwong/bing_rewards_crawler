@@ -1,15 +1,65 @@
+Abigail Spencer
+Alibaba
+Amber Heard
+Arizona Cardinals
+BABA
+Big Bang Theory
+Brandon Marshall
+Bruce Jenner
+Charlo Greene
+Chicago Bears
+Eagles
+Emma Watson
+Eric the Actor
+Erica Mena
+FIFA 15
+FIRST DAY OF AUTUMN
+FKA Twigs
+Fantasy football waiver wire
+First Day Of Fall
+Gotham
+Gotham
+Gwen Stefani
+Jamaal Charles
+James Harrison
+Jasmine Tridevil
+Madam Secretary Cbs
+Meagan Good
+Peyton Manning
+Pittsburgh Steelers
+Ravens
+Rob Bironas
+Rosh Hashanah
+Sam Pepper
+Steelers
+Syria
+Tea Leoni
+Terry Bradshaw
+The Blacklist
+The Voice 
+University of Alabama
+WWE
+adam levine
 adama
+alabama
 amazon
 amidala
 android
 apple
 ars technica
+autumn
+baltimore ravens
 battlestar galactica
 bearded dragon
+ben roethlisberger
 bill gates
+blacklist
 boba fett
 borderlands
+broncos vs seahawks
+cam newton
 captain kirk
+carolina panthers
 castle crashers
 cinema sins
 civilization beyond earth
@@ -24,6 +74,7 @@ emacs
 engadget
 espn
 facebook
+fall
 fallout
 federer
 feedly
@@ -33,6 +84,7 @@ firefox
 flickr
 free xbox gold live
 ftl
+gavin rossdale
 gmail
 gog
 google
@@ -44,18 +96,22 @@ hammerfight
 han solo
 hearthstone
 humble bundle
+ike taylor
 instagram
 iphone
 jabba the hutt
+james spader
 josh gordon
 king of new york
 king of tokyo
+kris jenner
 lando
 laura roslin
 lebron james
 lee apollo
 lifehacker
 luke skywalker
+marshawn lynch
 matthew berry
 max payne
 mccain
@@ -72,19 +128,28 @@ nadal
 netflix
 nexus 5
 nexus 9
+nick foles
+night of champions
 nikola tesla
 oneplus one
 papers please
 peyton manning
+philadelphia eagles
 pinterest
+pittsburgh steelers
 president obama
 princess leia
 prison architect
 python
 reed hastings
+rihanna
+rob bironas wife
 robinson crusoe
+roman reigns
 rss reader
+russell wilson
 ryan tannehill
+san francisco 49ers
 selenium python
 sidney moncrief
 skyrim
@@ -114,90 +179,8 @@ wil wheaton
 woot
 world cup
 world of warcraft
+wwe night of champions
 xbox one
 xbox one madden
 yahoo
 youtube
-FIFA 15
-Gwen Stefani
-adam levine
-gavin rossdale
-The Voice 
-Chicago Bears
-Big Bang Theory
-Gotham
-Jasmine Tridevil
-The Blacklist
-blacklist
-james spader
-University of Alabama
-alabama
-Charlo Greene
-FIRST DAY OF AUTUMN
-Rosh Hashanah
-Bruce Jenner
-kris jenner
-Syria
-James Harrison
-Pittsburgh Steelers
-FKA Twigs
-Brandon Marshall
-fall
-autumn
-BABA
-Alibaba
-Rob Bironas
-Steelers
-carolina panthers
-pittsburgh steelers
-ike taylor
-cam newton
-ben roethlisberger
-Meagan Good
-rihanna
-Gotham
-First Day Of Fall
-WWE
-night of champions
-wwe night of champions
-roman reigns
-Eagles
-philadelphia eagles
-nick foles
-Eric the Actor
-Peyton Manning
-marshawn lynch
-russell wilson
-broncos vs seahawks
-Terry Bradshaw
-rob bironas wife
-Erica Mena
-Emma Watson
-Amber Heard
-Jamaal Charles
-Arizona Cardinals
-san francisco 49ers
-Fantasy football waiver wire
-Abigail Spencer
-Tea Leoni
-Madam Secretary Cbs
-Ravens
-baltimore ravens
-Sam Pepper
-chicago blackhawks
-la kings
-superman
-shingles
-ebola
-virus
-ebola virus
-jordan sparks
-X Factor
-spiderman
-batman
-wonderwoman
-x men
-live
-acdc
-salt
-perl
