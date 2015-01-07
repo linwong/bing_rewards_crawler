@@ -17,7 +17,7 @@ import re
 profile_location = '~/bing_firefox'
 search_terms = 'search_terms.txt'
 login_list = 'logins.txt'
-num_of_searches = 35
+num_of_searches = 65
 num_of_mobile_searches = 25
 
 # Get options
@@ -93,6 +93,7 @@ for search in searches:
   try:
     WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.NAME,'q')))
   finally:
+    time.sleep(2)
     i += 1
     print 'search ' + `i` + ' ' + search
   if i > num_of_searches:
