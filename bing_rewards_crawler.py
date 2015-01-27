@@ -124,6 +124,7 @@ for search in searches:
   try:
     WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.NAME,'q')))
   finally:
+    time.sleep(2)
     i += 1
     print 'mobile search ' + `i` + ' ' + search
   if i > num_of_mobile_searches:
