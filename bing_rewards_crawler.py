@@ -26,14 +26,17 @@ num_of_mobile_searches = 25
 #  -l --logins - use logins in logins.txt file
 #  -h --help  
 try:
-  options, args = getopt.getopt(sys.argv[1:], "p:hbl", ["profile=", "help", "browser", "logins"])
+  options, args = getopt.getopt(sys.argv[1:], "p:hblm", ["profile=", "help", "browser", "logins", "mobile_only"])
 except getopt.GetoptError:
   print 'Usage: bing_rewards_crawler.py [-p path_to_profile] [-b] [-l]'
   exit(2)
 
+mobile_search_only = False
 open_browser = False
 use_login_file = False
 for opt, arg in options:
+  if opt in ('-m', '--mobile_only'):
+    mobile_search_only = True
   if opt in ('-p', '--profile'):
     profile_location = arg
   if opt in ('-b', '--browser'):
@@ -67,38 +70,39 @@ with open(script_directory + '/' + search_terms) as f:
 f.close()
 random.shuffle(searches)
 
-
-# Desktop search
 url = 'http://bing.com'
-ffprofile = webdriver.FirefoxProfile(profile_directory)
-driver    = webdriver.Firefox(ffprofile)
-driver.get(url)
 
-# this only opens the browser and does no searches
-if open_browser:
-  exit()
+if not mobile_search_only:
+  # Desktop search
+  ffprofile = webdriver.FirefoxProfile(profile_directory)
+  driver    = webdriver.Firefox(ffprofile)
+  driver.get(url)
 
-i = 0
-for search in searches:
-  while True:
+  # this only opens the browser and does no searches
+  if open_browser:
+    exit()
+
+  i = 0
+  for search in searches:
+    while True:
+      try:
+        input = driver.find_element_by_name('q')
+        break
+      except:
+        print "couldn't find element"
+        time.sleep(1)
+    input.clear()
+    input.send_keys(search)
+    input.submit()
     try:
-      input = driver.find_element_by_name('q')
+      WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.NAME,'q')))
+    finally:
+      time.sleep(2)
+      i += 1
+      print 'search ' + `i` + ' ' + search
+    if i > num_of_searches:
       break
-    except:
-      print "couldn't find element"
-      time.sleep(1)
-  input.clear()
-  input.send_keys(search)
-  input.submit()
-  try:
-    WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.NAME,'q')))
-  finally:
-    time.sleep(2)
-    i += 1
-    print 'search ' + `i` + ' ' + search
-  if i > num_of_searches:
-    break
-driver.quit()
+  driver.quit()
 
 
 # Mobile Search
@@ -114,7 +118,10 @@ for search in searches:
   while True:
     try:
       input = driver.find_element_by_name('q')
-      break
+      if input.is_displayed():
+        break
+      else:
+        time.sleep(1)
     except:
       print "couldn't find element"
       time.sleep(1)
